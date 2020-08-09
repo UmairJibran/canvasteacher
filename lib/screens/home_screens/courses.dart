@@ -1,40 +1,8 @@
 import 'package:flutter/material.dart';
 import './../../widgets/home_grid_tile.dart' as MyHome;
+import '../../data/courses.dart';
 
 class Courses extends StatelessWidget {
-  final List subjects = [
-    {
-      "subjectName": "Biology",
-      "subjectCode": "BIO 101",
-      "color": Colors.blueAccent
-    },
-    {
-      "subjectName": "Chemistry",
-      "subjectCode": "CHEM 101",
-      "color": Colors.green,
-    },
-    {
-      "subjectName": "Mathematics",
-      "subjectCode": "MATH 101",
-      "color": Colors.yellow
-    },
-    {
-      "subjectName": "Music Theory",
-      "subjectCode": "MUS 101",
-      "color": Colors.lightGreenAccent
-    },
-    {
-      "subjectName": "Psychology",
-      "subjectCode": "PSY 101",
-      "color": Colors.red
-    },
-    {
-      "subjectName":
-          "American Literature 401 408 658 American Literature 401 408 658 ",
-      "subjectCode": "LIT 401",
-      "color": Colors.deepPurple
-    },
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
