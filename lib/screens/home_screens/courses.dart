@@ -13,9 +13,12 @@ class Courses extends StatelessWidget {
         ),
         title: Text("Courses"),
         actions: [
-          Icon(
-            Icons.edit,
-            size: 32,
+          IconButton(
+            icon: Icon(
+              Icons.edit,
+              size: 32,
+            ),
+            onPressed: () => {},
           ),
         ],
       ),

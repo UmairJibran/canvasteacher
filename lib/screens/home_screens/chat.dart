@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Unkown extends StatelessWidget {
+class Chat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home_screens/profile.dart';
 import 'home_screens/courses.dart';
-import 'home_screens/unkown.dart';
+import 'home_screens/chat.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
 
   static List<Widget> _widgets = <Widget>[
     Courses(),
-    Unkown(),
+    Chat(),
     Profile(),
   ];
 
@@ -31,14 +31,14 @@ class _HomeState extends State<Home> {
         child: _widgets.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
             title: Text('Courses'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
-            title: Text('Unkown'),
+            title: Text('Chat'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
