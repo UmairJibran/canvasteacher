@@ -1,3 +1,4 @@
+import 'package:canvasteacher/screens/course_detail_screen.dart';
 import 'package:flutter/material.dart';
 import './screens/home.dart';
 
@@ -10,7 +11,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blueGrey,
       ),
-      home: Home(),
+      routes: {
+        "/": (ctx) => Home(),
+        CourseDetailScreen.route: (ctx) => CourseDetailScreen(),
+      },
     );
   }
 }

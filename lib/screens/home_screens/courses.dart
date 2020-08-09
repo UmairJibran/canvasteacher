@@ -64,6 +64,7 @@ class Courses extends StatelessWidget {
                 children: List.generate(
                   subjects.length,
                   (index) => MyHome.GridTile(
+                    subjectID: subjects[index]['id'],
                     color: subjects[index]["color"],
                     subject: subjects[index]["subjectName"],
                     subjectCode: subjects[index]["subjectCode"],
