@@ -50,9 +50,11 @@ class GridTile extends StatelessWidget {
                   subject,
                   style: TextStyle(
                     color: color,
-                    // fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  maxLines: 2,
+                  maxFontSize: 26,
+                  minFontSize: 12,
                 ),
                 Text(
                   subjectCode,
