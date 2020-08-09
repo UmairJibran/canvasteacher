@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
             title: Text('Courses'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
+            icon: Icon(Icons.chat),
             title: Text('Unkown'),
           ),
           BottomNavigationBarItem(
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blueAccent,
         onTap: _onItemTapped,
       ),
     );

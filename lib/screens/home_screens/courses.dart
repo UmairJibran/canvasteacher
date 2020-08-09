@@ -29,7 +29,8 @@ class Courses extends StatelessWidget {
       "color": Colors.red
     },
     {
-      "subjectName": "American Literature",
+      "subjectName":
+          "American Literature 401 408 658 American Literature 401 408 658 ",
       "subjectCode": "LIT 401",
       "color": Colors.deepPurple
     },
