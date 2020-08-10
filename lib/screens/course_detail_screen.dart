@@ -33,15 +33,45 @@ class CourseDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Labs and Assignments",
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 17,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Labs and Assignments",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 17,
+                ),
               ),
             ),
-            AssignmentTile(
-              color: courseColor,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.38,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (_, index) {
+                  return AssignmentTile(color: courseColor);
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Field Trip Assignments",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 17,
+                ),
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.38,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (_, index) {
+                  return AssignmentTile(color: courseColor);
+                },
+              ),
             ),
           ],
         ),

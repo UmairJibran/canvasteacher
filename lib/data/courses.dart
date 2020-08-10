@@ -17,13 +17,13 @@ final List subjects = [
     "id": "0003",
     "subjectName": "Mathematics",
     "subjectCode": "MATH 101",
-    "color": Colors.yellow,
+    "color": Colors.orange,
   },
   {
     "id": "0004",
     "subjectName": "Music Theory",
     "subjectCode": "MUS 101",
-    "color": Colors.lightGreenAccent,
+    "color": Colors.indigo,
   },
   {
     "id": "0005",

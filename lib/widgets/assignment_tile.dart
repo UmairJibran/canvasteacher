@@ -2,18 +2,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class AssignmentTile extends StatelessWidget {
-  AssignmentTile({this.color, this.assignmentCode});
+  AssignmentTile({this.color});
+  final bool haveDue = false;
   final Color color;
-  final assignmentCode;
-  final haveDue = false;
-  final dueDate = "Jun 20";
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Colors.black12,
       onTap: () {},
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.14,
+        height: MediaQuery.of(context).size.height * 0.17,
         padding: EdgeInsets.only(top: 12),
         child: Row(
           children: [
@@ -66,7 +64,7 @@ class AssignmentTile extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Due $dueDate at 11:59 PM",
+                    "Due  at 11:59 PM",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
