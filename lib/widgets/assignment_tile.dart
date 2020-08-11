@@ -1,15 +1,28 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:canvasteacher/screens/assignemnt_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class AssignmentTile extends StatelessWidget {
-  AssignmentTile({this.color});
+  AssignmentTile(this.course, {this.color});
   final bool haveDue = false;
+  final String course;
   final Color color;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Colors.black12,
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => AssignmentDetail(
+              title: course,
+              color: color,
+              assignmentTitle:
+                  "Cell Biology: The Quickest Route for Protein Transport",
+            ),
+          ),
+        );
+      },
       child: Container(
         height: MediaQuery.of(context).size.height * 0.17,
         padding: EdgeInsets.only(top: 12),

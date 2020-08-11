@@ -49,7 +49,7 @@ class CourseDetailScreen extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (_, index) {
-                  return AssignmentTile(color: courseColor);
+                  return AssignmentTile(courseName, color: courseColor);
                 },
               ),
             ),
@@ -69,7 +69,7 @@ class CourseDetailScreen extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (_, index) {
-                  return AssignmentTile(color: courseColor);
+                  return AssignmentTile(courseName, color: courseColor);
                 },
               ),
             ),
