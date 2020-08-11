@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:canvasteacher/screens/assignment_submission.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
@@ -224,46 +225,58 @@ class AssignmentDetail extends StatelessWidget {
                 "Submissions",
                 style: TextStyle(color: Colors.grey),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    padding: EdgeInsets.all(5),
-                    child: PieChart(
-                      dataMap: dataMap,
-                      chartType: ChartType.ring,
-                      showLegends: false,
-                      showChartValuesInPercentage: false,
-                      showChartValues: false,
-                      chartValueBackgroundColor: Colors.white,
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => AssignmentSubmission(
+                        color: color,
+                        subject: title,
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    padding: EdgeInsets.all(5),
-                    child: PieChart(
-                      dataMap: dataMap,
-                      chartType: ChartType.ring,
-                      showLegends: false,
-                      showChartValuesInPercentage: false,
-                      showChartValues: false,
-                      chartValueBackgroundColor: Colors.white,
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      padding: EdgeInsets.all(5),
+                      child: PieChart(
+                        dataMap: dataMap,
+                        chartType: ChartType.ring,
+                        showLegends: false,
+                        showChartValuesInPercentage: false,
+                        showChartValues: false,
+                        chartValueBackgroundColor: Colors.white,
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    padding: EdgeInsets.all(5),
-                    child: PieChart(
-                      dataMap: dataMap,
-                      chartType: ChartType.ring,
-                      showLegends: false,
-                      showChartValuesInPercentage: false,
-                      showChartValues: false,
-                      chartValueBackgroundColor: Colors.white,
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      padding: EdgeInsets.all(5),
+                      child: PieChart(
+                        dataMap: dataMap,
+                        chartType: ChartType.ring,
+                        showLegends: false,
+                        showChartValuesInPercentage: false,
+                        showChartValues: false,
+                        chartValueBackgroundColor: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      padding: EdgeInsets.all(5),
+                      child: PieChart(
+                        dataMap: dataMap,
+                        chartType: ChartType.ring,
+                        showLegends: false,
+                        showChartValuesInPercentage: false,
+                        showChartValues: false,
+                        chartValueBackgroundColor: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
