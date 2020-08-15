@@ -1,5 +1,6 @@
 import 'package:canvasteacher/screens/assignemnt_detail_screen.dart';
 import 'package:canvasteacher/screens/course_detail_screen.dart';
+import 'package:canvasteacher/screens/grade_screen.dart';
 import 'package:flutter/material.dart';
 import './screens/home.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         "/": (ctx) => Home(),
         CourseDetailScreen.route: (ctx) => CourseDetailScreen(),
         AssignmentDetail.route: (ctx) => AssignmentDetail(),
+        GradeScreen.route: (ctx) => GradeScreen(),
       },
     );
   }
