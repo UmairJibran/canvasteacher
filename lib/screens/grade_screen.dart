@@ -1,3 +1,6 @@
+import 'package:canvasteacher/widgets/bottom_sheet/comments.dart';
+import 'package:canvasteacher/widgets/bottom_sheet/files.dart';
+import 'package:canvasteacher/widgets/bottom_sheet/grades.dart';
 import 'package:flutter/material.dart';
 // import 'package:quill_delta/quill_delta.dart';
 // import 'package:zefyr/zefyr.dart';
@@ -115,48 +118,57 @@ class _GradeScreenState extends State<GradeScreen> {
     );
   }
 
+  // void _showBottomSheet(BuildContext context) {
+  //   BottomModalSheet(context: context);
+  // }
   void _showBottomSheet(BuildContext context) {
     List<String> options = ["GRADE", "COMMENTS", "FILES"];
     showModalBottomSheet(
       context: context,
-      builder: (BuildContext context) => Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: options.length,
-                itemBuilder: (context, index) {
-                  return FlatButton(
-                    child: Text(
-                      options[index],
-                      style: selectedIndex == index
-                          ? TextStyle(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline,
-                            )
-                          : TextStyle(),
-                    ),
-                    onPressed: () {
-                      setState(
-                        () {
-                          selectedIndex = index;
-                        },
-                      );
-                    },
-                  );
-                },
+      builder: (BuildContext context) => StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) => Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: options.length,
+                  itemBuilder: (context, index) {
+                    return FlatButton(
+                      child: Text(
+                        options[index],
+                        style: selectedIndex == index
+                            ? TextStyle(
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline,
+                              )
+                            : TextStyle(),
+                      ),
+                      onPressed: () {
+                        setState(
+                          () {
+                            selectedIndex = index;
+                          },
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-            Text(
-              options[selectedIndex],
-            ),
-          ],
+              Container(
+                child: selectedIndex == 0
+                    ? BottomSheetGradeTab()
+                    : selectedIndex == 1
+                        ? BottomSheetCommentTab()
+                        : BottomSheetFileTab(),
+              ),
+            ],
+          ),
         ),
       ),
     );
