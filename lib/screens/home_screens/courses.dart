@@ -24,6 +24,8 @@ class Courses extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.all(5),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
             Row(
@@ -58,7 +60,7 @@ class Courses extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.71,
+              height: MediaQuery.of(context).size.height * 0.7,
               child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(

@@ -30,6 +30,7 @@ class CourseDetailScreen extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.only(left: 10, top: 10),
+        height: MediaQuery.of(context).size.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
