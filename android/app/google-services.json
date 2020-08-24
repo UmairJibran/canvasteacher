@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1091243599397",
+    "firebase_url": "https://canvas-ac766.firebaseio.com",
+    "project_id": "canvas-ac766",
+    "storage_bucket": "canvas-ac766.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091243599397:android:cdd16e7d2d88029c1ec1cc",
+        "android_client_info": {
+          "package_name": "com.example.canvasteacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091243599397-ose1ef37kgbdvn9rcvu68do959upd16p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAegXCJugiZOVox_cxym_pa8CbuGMHXRpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091243599397-ose1ef37kgbdvn9rcvu68do959upd16p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
