@@ -3,10 +3,19 @@ import 'package:canvasteacher/screens/assignemnt_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class AssignmentTile extends StatelessWidget {
-  AssignmentTile(this.course, {this.color});
+  AssignmentTile(
+    this.course, {
+    this.color,
+    this.needsGrading,
+    this.dueTime,
+    this.assignmentTitle,
+  });
   final bool haveDue = false;
   final String course;
   final Color color;
+  final needsGrading;
+  final dueTime;
+  final assignmentTitle;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,8 +26,7 @@ class AssignmentTile extends StatelessWidget {
             builder: (_) => AssignmentDetail(
               title: course,
               color: color,
-              assignmentTitle:
-                  "Cell Biology: The Quickest Route for Protein Transport",
+              assignmentTitle: assignmentTitle,
             ),
           ),
         );
@@ -65,7 +73,7 @@ class AssignmentTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AutoSizeText(
-                    "Cell Biology: The Quickest Route for Protein Transport",
+                    "${assignmentTitle}",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -77,7 +85,7 @@ class AssignmentTile extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Due  at 11:59 PM",
+                    "Due  at ${dueTime}",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
@@ -93,7 +101,7 @@ class AssignmentTile extends StatelessWidget {
                       vertical: 3.0,
                     ),
                     child: Text(
-                      "2 Needs Grading",
+                      "${needsGrading} Needs Grading",
                       style: TextStyle(color: color),
                     ),
                   ),

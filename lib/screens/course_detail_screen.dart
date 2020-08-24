@@ -1,3 +1,4 @@
+import 'package:canvasteacher/data/assignments.dart';
 import 'package:canvasteacher/data/courses.dart';
 import 'package:canvasteacher/widgets/assignment_tile.dart';
 import 'package:flutter/material.dart';
@@ -48,9 +49,15 @@ class CourseDetailScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.38,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: assignments.length,
                 itemBuilder: (_, index) {
-                  return AssignmentTile(courseName, color: courseColor);
+                  return AssignmentTile(
+                    courseName,
+                    color: courseColor,
+                    assignmentTitle: assignments[index]["assignmentTitle"],
+                    dueTime: assignments[index]["dueTime"],
+                    needsGrading: assignments[index]["needsGrading"],
+                  );
                 },
               ),
             ),
@@ -68,9 +75,15 @@ class CourseDetailScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.38,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: assignments.length,
                 itemBuilder: (_, index) {
-                  return AssignmentTile(courseName, color: courseColor);
+                  return AssignmentTile(
+                    courseName,
+                    color: courseColor,
+                    assignmentTitle: assignments[index]["assignmentTitle"],
+                    dueTime: assignments[index]["dueTime"],
+                    needsGrading: assignments[index]["needsGrading"],
+                  );
                 },
               ),
             ),
