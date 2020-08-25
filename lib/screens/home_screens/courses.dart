@@ -1,10 +1,38 @@
+import 'dart:math';
+
+import 'package:canvasteacher/models/course_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import './../../widgets/home_grid_tile.dart' as MyHome;
 import '../../data/courses.dart';
 
 class Courses extends StatelessWidget {
+  List<Course> _courses = [];
   @override
   Widget build(BuildContext context) {
+    void getData() async {
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      var querySnapshot = firebaseFirestore.collection("subjects").get();
+      querySnapshot.then(
+        (value) {
+          final docs = value.docs;
+          docs.forEach(
+            (doc) {
+              final course = doc.data();
+              _courses.add(
+                Course(
+                  id: int.parse(course['id']),
+                  subjectName: course['subjectName'],
+                  subjectCode: course['subjectCode'],
+                ),
+              );
+            },
+          );
+        },
+      );
+    }
+
+    getData();
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -64,12 +92,12 @@ class Courses extends StatelessWidget {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(
-                  subjects.length,
+                  _courses.length,
                   (index) => MyHome.GridTile(
-                    subjectID: subjects[index]['id'],
-                    color: subjects[index]["color"],
-                    subject: subjects[index]["subjectName"],
-                    subjectCode: subjects[index]["subjectCode"],
+                    subjectID: _courses[index].id,
+                    subject: _courses[index].subjectName,
+                    subjectCode: _courses[index].subjectCode,
+                    color: index % 3 == 1 ? Colors.blue : Colors.green,
                   ),
                 ),
                 childAspectRatio: 5 / 4.1,
