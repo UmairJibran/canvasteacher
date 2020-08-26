@@ -1,19 +1,21 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:canvasteacher/models/assignment_model.dart';
 import 'package:canvasteacher/screens/assignment_submission.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class AssignmentDetail extends StatelessWidget {
   static const route = "/assignmentDetail";
   final Color color;
   final String title;
-  final String assignmentTitle;
+  final Assignment assignment;
   final bool isPublished = true;
   final int pts = 30;
   AssignmentDetail({
     this.title,
     this.color,
-    this.assignmentTitle,
+    this.assignment,
   });
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class AssignmentDetail extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AutoSizeText(
-                assignmentTitle,
+                assignment.assignmentTitle,
                 minFontSize: 20,
                 maxFontSize: 34,
                 maxLines: 2,
@@ -117,7 +119,7 @@ class AssignmentDetail extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    "April 1 at 11:59 PM",
+                    "${DateFormat.yMMMd().format(assignment.dueTime)}",
                     style: TextStyle(
                       fontSize: 17,
                     ),
@@ -159,7 +161,7 @@ class AssignmentDetail extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    "April 1 at 11:59 PM",
+                    "${DateFormat.yMMMMEEEEd().format(assignment.upDate)}",
                     style: TextStyle(
                       fontSize: 17,
                     ),
@@ -180,7 +182,7 @@ class AssignmentDetail extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    "April 30 at 11:59 PM",
+                    "${DateFormat.yMMMMEEEEd().format(assignment.dueTime)}",
                     style: TextStyle(
                       fontSize: 17,
                     ),

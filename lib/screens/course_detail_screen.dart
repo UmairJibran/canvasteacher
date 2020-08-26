@@ -4,7 +4,6 @@ import 'package:canvasteacher/models/assignment_model.dart';
 import 'package:canvasteacher/widgets/assignment_tile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../models/course_model.dart';
 
 class CourseDetailScreen extends StatefulWidget {
@@ -30,6 +29,8 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
             final assignment = doc.data();
             final dueDate =
                 DateTime.parse(assignment['dueTime'].toDate().toString());
+            final upDate =
+                DateTime.parse(assignment['upDate'].toDate().toString());
             assignments.add(
               Assignment(
                 // id: assignment['id'],
@@ -37,6 +38,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                 dueTime: dueDate,
                 needsGrading: assignment['needsGrading'],
                 subjectId: assignment['subjectId'],
+                upDate: upDate,
               ),
             );
           },
@@ -99,13 +101,9 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                     child: ListView.builder(
                       itemCount: assignments.length,
                       itemBuilder: (_, index) {
-                        return AssignmentTile(
-                          courseName,
-                          color: Colors.teal[200],
-                          assignmentTitle: assignments[index].assignmentTitle,
-                          dueTime: assignments[index].dueTime,
-                          needsGrading: assignments[index].needsGrading,
-                        );
+                        return AssignmentTile(courseName,
+                            color: Colors.teal[200],
+                            assignment: assignments[index]);
                       },
                     ),
                   ),
@@ -128,9 +126,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                         return AssignmentTile(
                           courseName,
                           color: Colors.teal[200],
-                          assignmentTitle: assignments[index].assignmentTitle,
-                          dueTime: assignments[index].dueTime,
-                          needsGrading: assignments[index].needsGrading,
+                          assignment: assignments[index],
                         );
                       },
                     ),

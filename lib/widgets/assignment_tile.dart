@@ -1,22 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:canvasteacher/models/assignment_model.dart';
 import 'package:canvasteacher/screens/assignemnt_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AssignmentTile extends StatelessWidget {
-  AssignmentTile(
-    this.course, {
-    this.color,
-    this.needsGrading,
-    this.dueTime,
-    this.assignmentTitle,
-  });
+  AssignmentTile(this.course, {this.assignment, this.color});
   final bool haveDue = false;
   final String course;
+  final Assignment assignment;
   final Color color;
-  final needsGrading;
-  final DateTime dueTime;
-  final assignmentTitle;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -27,7 +20,7 @@ class AssignmentTile extends StatelessWidget {
             builder: (_) => AssignmentDetail(
               title: course,
               color: color,
-              assignmentTitle: assignmentTitle,
+              assignment: assignment,
             ),
           ),
         );
@@ -74,7 +67,7 @@ class AssignmentTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AutoSizeText(
-                    "$assignmentTitle",
+                    "${assignment.assignmentTitle}",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -86,8 +79,7 @@ class AssignmentTile extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Due at ${DateFormat.yMMMd().format(dueTime)}",
-                    // "Due  at $dueTime ${dueTime.day}/${dueTime.month}/${dueTime.year}",
+                    "Due at ${DateFormat.yMMMd().format(assignment.dueTime)}",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
@@ -103,7 +95,7 @@ class AssignmentTile extends StatelessWidget {
                       vertical: 3.0,
                     ),
                     child: Text(
-                      "${needsGrading} Needs Grading",
+                      "${assignment.needsGrading} Needs Grading",
                       style: TextStyle(color: color),
                     ),
                   ),
