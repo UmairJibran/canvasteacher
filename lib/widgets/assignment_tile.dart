@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:canvasteacher/screens/assignemnt_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AssignmentTile extends StatelessWidget {
   AssignmentTile(
@@ -14,7 +15,7 @@ class AssignmentTile extends StatelessWidget {
   final String course;
   final Color color;
   final needsGrading;
-  final dueTime;
+  final DateTime dueTime;
   final assignmentTitle;
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class AssignmentTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AutoSizeText(
-                    "${assignmentTitle}",
+                    "$assignmentTitle",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -85,7 +86,8 @@ class AssignmentTile extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Due  at ${dueTime}",
+                    "Due at ${DateFormat.yMMMd().format(dueTime)}",
+                    // "Due  at $dueTime ${dueTime.day}/${dueTime.month}/${dueTime.year}",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
