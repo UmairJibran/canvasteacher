@@ -1,4 +1,5 @@
 import 'package:canvasteacher/models/course_model.dart';
+import 'package:canvasteacher/screens/adding_assignment.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import './../../widgets/home_grid_tile.dart' as MyHome;
@@ -59,7 +60,11 @@ class _CoursesState extends State<Courses> {
                     Icons.edit,
                     size: 32,
                   ),
-                  onPressed: () => {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return AddingAssignment();
+                    }));
+                  },
                 ),
               ],
             ),
